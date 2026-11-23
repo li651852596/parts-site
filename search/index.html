@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search | Shanghai Haolian Auto Parts</title>
+<link rel="stylesheet" href="/skin/css/style.css">
+<style>
+body{font-family:Arial,sans-serif;padding:30px;max-width:900px;margin:auto;background:#fff;color:#222}
+h1{font-size:24px;margin-bottom:20px}
+#kw{padding:10px;width:70%;font-size:16px}
+#go{padding:10px 20px;font-size:16px;cursor:pointer}
+.r{border-bottom:1px solid #eee;padding:14px 0}
+.r a{font-size:17px;color:#185FA5;text-decoration:none}
+.r p{margin:6px 0 0;color:#666;font-size:14px}
+.count{color:#888;margin:16px 0}
+</style></head><body>
+<h1>SEARCH PRODUCTS &amp; PAGES</h1>
+<form onsubmit="doSearch(event);return false">
+<input id="kw" placeholder="Enter product name, e.g. AIR FILTER" />
+<button id="go" type="submit">SEARCH</button>
+</form>
+<div class="count" id="count"></div>
+<div id="result"></div>
+<script src="/search-index.js"></script>
+<script>
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function doSearch(){
+  var q=document.getElementById('kw').value.trim().toLowerCase();
+  var idx=window.__SEARCH_INDEX__||[];
+  var hits=[];
+  if(q){
+    hits=idx.filter(function(it){
+      var hay=(it.title+' '+it.kw.join(' ')).toLowerCase();
+      return hay.indexOf(q)>=0;
+    });
+  }
+  var out='';
+  hits.forEach(function(it){
+    var desc=it.kw.slice(0,4).join(' · ');
+    out+='<div class="r"><a href="'+esc(it.url)+'">'+esc(it.title)+'</a><p>'+esc(desc)+'</p></div>';
+  });
+  document.getElementById('result').innerHTML=out|| (q?'<p>No results found.</p>':'');
+  document.getElementById('count').textContent=q?('Result: '+hits.length):'';
+}
+var m=location.search.match(/keyword=([^&]*)/);
+if(m){document.getElementById('kw').value=decodeURIComponent(m[1]);doSearch();}
+</script></body></html>
