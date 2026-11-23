@@ -1,0 +1,12 @@
+# KYHS Auto Parts
+
+> Auto parts supplier site published at https://parts.kyhsexport.com/.
+
+## Key pages
+
+- Home: https://parts.kyhsexport.com/
+- Products: https://parts.kyhsexport.com/products/
+- About: https://parts.kyhsexport.com/about/
+- Contact: https://parts.kyhsexport.com/contact/
+- Inquiry: https://parts.kyhsexport.com/msg/
+- Sitemap: https://parts.kyhsexport.com/sitemap.xml

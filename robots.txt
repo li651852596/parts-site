@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /search/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /search/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /search/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /search/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /search/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /search/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /search/
+
+User-agent: CCBot
+Allow: /
+Disallow: /search/
+
+Sitemap: https://parts.kyhsexport.com/sitemap.xml
